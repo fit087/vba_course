@@ -83,7 +83,7 @@ Sub suma()
     '   soma = soma + vector_linha(1, i)
     'Next i
     
-    'For Ndx = LBound(InputArray) To UBound(InputArray)
+    'For Ndx = LBound(InputArray) To (UBound(InputArray)
     
     For Each element In vector_linha
         soma = soma + element
@@ -102,4 +102,152 @@ Sub suma()
 
 
 
+End Sub
+Sub ctrl_plus()
+'
+' ctrl_plus Macro
+'
+
+'
+    ActiveCell.Offset(0, 6).Columns("A:A").EntireColumn.Select
+    Selection.Insert Shift:=xlToRight
+    ActiveCell.Range("A1:A6").Select
+    Selection.Insert Shift:=xlToRight
+    Selection.Delete Shift:=xlToLeft
+    ActiveCell.Offset(0, 1).Columns("A:A").EntireColumn.Select
+    Selection.Delete Shift:=xlToLeft
+End Sub
+
+Sub soma()
+    'Cells(1, 10)
+    Range("J1").Select
+    'Selection.End(xlToDown).Select
+    Range(Selection, Selection.End(xlDown)).Select   'Control+Shift+Down
+    
+'    Range("J1", Selection.End(xlDown)).Select   'Control+Shift+Down
+    
+    'ActiveCell.Offset(0, 1).Select
+    'Selection.Offset(0, 1).Select
+     
+    'Selection.Offset(0, 1).Insert shift:=xlToRight
+    
+    Selection.Offset(0, 1).Select
+    
+    Selection.Insert Shift:=xlToRight
+    
+    
+ 
+    'Range("J1", Selection.End(xlDown)).Offset(0, 1).Insert (xlToRight)
+    
+    Selection.FormulaR1C1 = "=MAX(RC[-5]:RC[-1])"
+    
+    Range("D8").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Offset(0, 1).Select
+    With Selection                              'Estatico
+    '    .Offset(0, 1).Select
+        .Insert Shift:=xlToRight
+        .FormulaR1C1 = "=MAX(RC[-4]:RC[-1])"
+    End With
+    
+    
+End Sub
+
+Sub fin()
+'
+' fin Macro
+'
+
+'
+    ActiveCell.SpecialCells(xlLastCell).Select  'ctrl+End
+    Range("A1").Select
+    Selection.End(xlDown).Select
+    Selection.End(xlUp).Select
+    ActiveCell.SpecialCells(xlLastCell).Select
+    Range("A1").Select
+    ActiveWindow.LargeScroll Down:=1
+    ActiveCell.Offset(23, 0).Range("A1").Select
+    ActiveWindow.LargeScroll Down:=-1
+    ActiveCell.Offset(-23, 0).Range("A1").Select
+    ActiveWindow.LargeScroll Down:=1
+    Range("A24").Select
+    ActiveWindow.LargeScroll Down:=-1
+    Range("A1").Select
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 4
+    Range("K1:K6").Select
+    Range("K6").Activate
+    Selection.Delete Shift:=xlToLeft
+    Range("C8:C13").Select
+    Selection.AutoFill Destination:=Range("C8:D13"), Type:=xlFillDefault
+    Range("C8:D13").Select
+    Range("E8").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Delete Shift:=xlToLeft
+    Range("G5").Select
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 3
+    Range("K6").Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Selection.Delete Shift:=xlToLeft
+    Range("E6").Select
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Range("C8:C13").Select
+    Selection.AutoFill Destination:=Range("C8:D13"), Type:=xlFillDefault
+    Range("C8:D13").Select
+    Range("E8:E13").Select
+    Selection.Delete Shift:=xlToLeft
+    Range("K1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Delete Shift:=xlToLeft
+    Range("K6").Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Selection.Delete Shift:=xlToLeft
+    Range("H5").Select
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Range("E8").Select
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 6
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 5
+    Range("F8").Select
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+End Sub
+
+Sub ctrl_shift_end()
+'
+' ctrl_shift_end Macro
+'
+
+'
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Range("A1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Range("A1").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToLeft)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToLeft)).Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Range("D8").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.AutoFill Destination:=Range("D8:E13"), Type:=xlFillDefault
+    Range("D8:E13").Select
+    Range("E8:E13").Select
+    Selection.ClearContents
 End Sub

@@ -157,71 +157,25 @@ Sub fin()
 '
 ' fin Macro
 '
-
-'
-    ActiveCell.SpecialCells(xlLastCell).Select  'ctrl+End
-    Range("A1").Select
-    Selection.End(xlDown).Select
-    Selection.End(xlUp).Select
-    ActiveCell.SpecialCells(xlLastCell).Select
-    Range("A1").Select
-    ActiveWindow.LargeScroll Down:=1
+        
     ActiveCell.Offset(23, 0).Range("A1").Select
-    ActiveWindow.LargeScroll Down:=-1
     ActiveCell.Offset(-23, 0).Range("A1").Select
+    ActiveCell.SpecialCells(xlLastCell).Select
     ActiveWindow.LargeScroll Down:=1
-    Range("A24").Select
     ActiveWindow.LargeScroll Down:=-1
-    Range("A1").Select
-    ActiveWindow.ScrollColumn = 3
-    ActiveWindow.ScrollColumn = 4
-    Range("K1:K6").Select
-    Range("K6").Activate
-    Selection.Delete Shift:=xlToLeft
-    Range("C8:C13").Select
-    Selection.AutoFill Destination:=Range("C8:D13"), Type:=xlFillDefault
-    Range("C8:D13").Select
-    Range("E8").Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Selection.Delete Shift:=xlToLeft
-    Range("G5").Select
-    ActiveWindow.ScrollColumn = 2
-    ActiveWindow.ScrollColumn = 3
-    Range("K6").Select
-    Range(Selection, Selection.End(xlUp)).Select
-    Selection.Delete Shift:=xlToLeft
-    Range("E6").Select
-    ActiveWindow.ScrollColumn = 2
-    ActiveWindow.ScrollColumn = 1
-    Range("C8:C13").Select
-    Selection.AutoFill Destination:=Range("C8:D13"), Type:=xlFillDefault
-    Range("C8:D13").Select
-    Range("E8:E13").Select
-    Selection.Delete Shift:=xlToLeft
-    Range("K1").Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Selection.Delete Shift:=xlToLeft
-    Range("K6").Select
-    Range(Selection, Selection.End(xlUp)).Select
-    Selection.Delete Shift:=xlToLeft
-    Range("H5").Select
-    ActiveWindow.ScrollColumn = 3
-    ActiveWindow.ScrollColumn = 2
-    ActiveWindow.ScrollColumn = 1
-    Range("E8").Select
-    ActiveWindow.ScrollColumn = 2
-    ActiveWindow.ScrollColumn = 3
-    ActiveWindow.ScrollColumn = 4
-    ActiveWindow.ScrollColumn = 5
     ActiveWindow.ScrollColumn = 6
-    ActiveWindow.ScrollColumn = 5
-    ActiveWindow.ScrollColumn = 4
-    ActiveWindow.ScrollColumn = 5
-    Range("F8").Select
-    ActiveWindow.ScrollColumn = 4
-    ActiveWindow.ScrollColumn = 3
-    ActiveWindow.ScrollColumn = 2
-    ActiveWindow.ScrollColumn = 1
+    Range("A1").Select
+    Range("C8:D13").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Selection.AutoFill Destination:=Range("C8:D13"), Type:=xlFillDefault     'Autocompletar
+    Selection.Delete Shift:=xlToLeft                                         'ctrl+menos
+    Selection.End(xlDown).Select                                             'ctrl+Down
+    Selection.End(xlUp).Select                                               'ctrl+Up
+    ActiveCell.SpecialCells(xlLastCell).Select                               'ctrl+End
+
+    
+    
 End Sub
 
 Sub ctrl_shift_end()
@@ -230,24 +184,33 @@ Sub ctrl_shift_end()
 '
 
 '
-    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
-    Range("A1").Select
-    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
-    Range("A1").Select
-    Range(Selection, Selection.End(xlToRight)).Select
+    Range("A1").Select                                                      'seleccion de A1
+    Range("E8:E13").Select                                                  'Selection of the range E8 to E13
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select            'Selection from actual Selection to end down
+    Range(Selection, Selection.End(xlDown)).Select                          '
     Range(Selection, Selection.End(xlToLeft)).Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Range(Selection, Selection.End(xlDown)).Select
     Range(Selection, Selection.End(xlToRight)).Select
-    Range(Selection, Selection.End(xlToLeft)).Select
     Range(Selection, Selection.End(xlUp)).Select
-    Range(Selection, Selection.End(xlUp)).Select
-    Range(Selection, Selection.End(xlUp)).Select
-    Range("D8").Select
-    Range(Selection, Selection.End(xlDown)).Select
     Selection.AutoFill Destination:=Range("D8:E13"), Type:=xlFillDefault
-    Range("D8:E13").Select
-    Range("E8:E13").Select
     Selection.ClearContents
+End Sub
+
+Public Function provando(rango As Range) As Variant
+Attribute provando.VB_Description = "dfagafgafg"
+Attribute provando.VB_ProcData.VB_Invoke_Func = " \n14"
+
+    'msgbox(rango.Value(1),vbYesNo,"rango.Value(1)")
+    Dim aux As Variant
+    aux = rango.Value
+    provando = aux(2)
+
+End Function
+
+Private Sub function2category()
+    'This rotine put the function "provando" in a category (1 to 15)
+    
+    Application.MacroOptions Macro:="provando", _
+    Category:=14 'Add to User defined
+    'Category:=3 'Add to Math & Trig
+    
 End Sub

@@ -202,7 +202,7 @@ Attribute provando.VB_ProcData.VB_Invoke_Func = " \n14"
     'msgbox(rango.Value(1),vbYesNo,"rango.Value(1)")
     Dim aux As Variant
     aux = rango.Value
-    provando = aux(2)
+    provando = aux(2, 1)
 
 End Function
 
